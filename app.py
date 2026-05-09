@@ -1,16 +1,3 @@
-"""
-=============================================================================
-OIL SPILL DETECTION — Streamlit Web App
-=============================================================================
-
-Run with:
-    streamlit run app.py
-
-Make sure your trained model weights file is in the same folder:
-    oil_spill_model_weights.pth
-=============================================================================
-"""
-
 import os
 import torch
 import torch.nn as nn
