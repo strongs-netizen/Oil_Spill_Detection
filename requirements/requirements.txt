@@ -2,4 +2,5 @@ streamlit
 torch
 torchvision
 timm
-Pillow
+pillow
+numpy
