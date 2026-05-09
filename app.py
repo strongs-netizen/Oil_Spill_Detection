@@ -19,12 +19,7 @@ import timm
 import streamlit as st
 from PIL import Image
 from torchvision import transforms
-streamlit run app.pyimport streamlit as st
 
-# Only run Streamlit code if in Streamlit context
-if __name__ == "__main__" or hasattr(st, 'runtime') and st.runtime.exists():
-    st.set_page_config(page_title="Oil Spill Detector")
-    # ... rest of your Streamlit app
 # ── Page Config ──────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Oil Spill Detector",
