@@ -8,9 +8,6 @@ from PIL import Image
 from torchvision import transforms
 from files import app  # pyright: ignore[reportMissingImports]
 
-st.run 
-app.py
-
 # ── Page Config ──────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Oil Spill Detector",
