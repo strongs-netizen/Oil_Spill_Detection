@@ -8,7 +8,7 @@ from PIL import Image
 from torchvision import transforms
 from files import app  # pyright: ignore[reportMissingImports]
 
-st.run 
+# st.run 
 app.py
 
 # ── Page Config ──────────────────────────────────────────────────────────
