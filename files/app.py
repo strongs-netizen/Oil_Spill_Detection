@@ -1,28 +1,20 @@
-"""
-=============================================================================
-OIL SPILL DETECTION — Streamlit App
-=============================================================================
-Folder structure required:
-    oil_spill_app/
-    ├── app.py
-    ├── preprocessing.py
-    └── model/
-        ├── model.py
-        ├── inference.py
-        └── neuralnet.pth     ← your trained weights file
-
-Run with:
-    streamlit run app.py
-=============================================================================
-"""
-
 import sys
 import os
-sys.path.append(os.path.dirname(__file__))   # make local imports work
+import importlib.util
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))   # make local imports work from repo root
 
 import streamlit as st
 from PIL import Image
-from model.inference import load_model, predict
+
+# Load the inference module directly from the repository when package resolution fails.
+model_inference_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "inference.py"))
+spec = importlib.util.spec_from_file_location("model.inference", model_inference_path)
+if spec is None or spec.loader is None:
+    raise ImportError(f"Cannot import model inference module from {model_inference_path}")
+model_inference = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(model_inference)
+load_model = model_inference.load_model
+predict = model_inference.predict
 from utils.preprocessing import preprocess
 
 # ── Class Names ───────────────────────────────────────────────────────────
